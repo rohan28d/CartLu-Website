@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>CartLu - Fresh Produce from Local Hawkers | Empowering Vendors</title>
+    <meta name="description" content="CartLu connects you directly with local fruit and vegetable hawkers in India. Get the freshest produce while empowering your neighborhood vendors. Order now!">
+    <meta name="keywords" content="fresh fruits, vegetables, local hawkers, support local India, online vegetable delivery, CartLu, empower vendors, farm fresh, Delhi, Mumbai, Bangalore">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <style>
+        /* ------------------- */
+        /* --- Root Variables & General Styles (Website ke main colors aur styles) --- */
+        /* ------------------- */
+        :root {
+            /* Original Orange/Yellow Palette (Aapka pehla color scheme) */
+            --color-primary: #f07209;
+            --color-secondary: #e76510;
+            --color-accent: #fa9609;
+            --color-gradient-orange-start: #f2840a;
+            --color-gradient-orange-end: #ed7109;
+            
+            /* New Gradients (Naye gradients, fruits/vegetables se inspired) */
+            --color-gradient-green-start: #2ecc71; /* Fresh Green (Taaza Hara) */
+            --color-gradient-green-end: #27ae60;
+            --color-gradient-red-start: #e74c3c;   /* Tomato Red (Tamatar Lal) */
+            --color-gradient-red-end: #c0392b;
+            --color-gradient-yellow-start: #f1c40f;/* Lemon Yellow (Neebu Peela) */
+            --color-gradient-yellow-end: #f39c12;
+
+            /* Other Colors (Baaki ke colors) */
+            --color-text: #34495e; /* Dark blue-gray for text */
+            --color-text-light: #5e6c7f;
+            --color-white: #ffffff;
+            --color-bg: #f9fafb; /* Light gray background */
+            --color-dark: #2c3e50; /* Dark blue for footer */
+            --border-radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --font-family: 'Manrope', sans-serif;
+        }
+
+        /* Basic Reset (Default styles ko reset karna) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--color-text);
+            background-color: var(--color-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Container (Content ko center me laane ke liye) */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Typography (Text styles) */
+        h1, h2, h3, h4 {
+            color: var(--color-dark);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 1rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.25rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--color-text-light);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            color: var(--color-text-light);
+        }
+
+        /* General Button Style (Button ke liye common style) */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-image: linear-gradient(90deg, var(--color-gradient-orange-start), var(--color-gradient-orange-end));
+            color: var(--color-white);
+            box-shadow: 0 5px 15px rgba(240, 114, 9, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(240, 114, 9, 0.4);
+        }
+        
+        /* General Section Padding (Har section me spacing) */
+        section {
+            padding: 100px 0;
+        }
+        
+        /* Animation for elements on scroll (Scroll karne par animation) */
+        .reveal {
+            position: relative;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+        /* ------------------- */
+        /* --- Header & Navigation (Header aur Navigation ke Styles) --- */
+        /* ------------------- */
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-image: linear-gradient(90deg, var(--color-gradient-orange-start), var(--color-gradient-orange-end));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active-link::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ------------------- */
+        /* --- Hero Section (Sabse upar wala section) --- */
+        /* ------------------- */
+        #hero {
+            padding-top: 180px;
+            padding-bottom: 120px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--color-white);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-text h1 {
+            background: linear-gradient(90deg, var(--color-gradient-orange-start), var(--color-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-visual-placeholder {
+            position: relative;
+            background-color: #fdf2e9; /* Light orange background */
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-visual-placeholder .placeholder-text {
+            color: var(--color-primary);
+            font-weight: 600;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-visual-placeholder .cartoon-hawker {
+            position: absolute;
+            bottom: 0;
+            right: -30px;
+            width: 250px;
+            z-index: 2;
+        }
+
+
+        /* ------------------- */
+        /* --- About Section (Hamare baare me section) --- */
+        /* ------------------- */
+        #about {
+            background-color: var(--color-bg);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-image-placeholder {
+            background-color: #e8f8f5; /* Light green background */
+            border-radius: var(--border-radius);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-gradient-green-end);
+            font-weight: 600;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-image-placeholder .cartoon-veg {
+            position: absolute;
+            width: 80px;
+            opacity: 0.8;
+        }
+        .about-image-placeholder .cartoon-veg.tomato { top: 20px; left: 30px; transform: rotate(-15deg); }
+        .about-image-placeholder .cartoon-veg.carrot { bottom: 30px; right: 40px; transform: rotate(20deg); }
+
+
+        .about-text h3 {
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        /* ------------------- */
+        /* --- How It Works Section (Kaise kaam karta hai section) --- */
+        /* ------------------- */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .step-card {
+            background: var(--color-white);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+        .step-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--color-primary);
+        }
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--color-gradient-orange-start), var(--color-gradient-orange-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-card h4 {
+            margin-bottom: 1rem;
+            color: var(--color-dark);
+        }
+
+        /* ------------------- */
+        /* --- Community Section (For Whom) (Kiske liye hai section) --- */
+        /* ------------------- */
+        #community {
+            background-color: var(--color-bg);
+        }
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .community-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+        .community-card .image-placeholder {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+            padding: 1rem;
+        }
+        .placeholder-hawkers { background-color: #fdebd0; color: #e67e22; }
+        .placeholder-customers { background-color: #eafaf1; color: #2ecc71; }
+
+        .community-content {
+            padding: 2rem;
+        }
+        .community-content h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        .community-content ul {
+            list-style: none;
+        }
+        .community-content ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+        }
+        .community-content ul li i {
+            color: var(--color-accent);
+        }
+        .btn-secondary {
+            background: none;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            font-weight: 600;
+            padding: 8px 20px;
+            margin-top: 1rem;
+        }
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* ------------------- */
+        /* --- Why Us Section (Humein kyu chune section) --- */
+        /* ------------------- */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            text-align: center;
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--color-white);
+        }
+        /* Applying new gradients to feature icons */
+        .feature-icon.green { background-image: linear-gradient(135deg, var(--color-gradient-green-start), var(--color-gradient-green-end)); box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3); }
+        .feature-icon.red { background-image: linear-gradient(135deg, var(--color-gradient-red-start), var(--color-gradient-red-end)); box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
+        .feature-icon.yellow { background-image: linear-gradient(135deg, var(--color-gradient-yellow-start), var(--color-gradient-yellow-end)); box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3); }
+        .feature-icon.orange { background-image: linear-gradient(135deg, var(--color-gradient-orange-start), var(--color-gradient-orange-end)); box-shadow: 0 5px 15px rgba(240, 114, 9, 0.3); }
+
+        .feature-card h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ------------------- */
+        /* --- Gemini AI Section (AI Recipe Generator ke liye styles) --- */
+        /* ------------------- */
+        #gemini-ai {
+            background-color: var(--color-bg);
+        }
+        .gemini-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .gemini-wrapper h3 {
+            background: linear-gradient(90deg, var(--color-gradient-green-start), var(--color-gradient-green-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        #ingredient-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        #recipe-result {
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            background: #f9fafb;
+            text-align: left;
+            white-space: pre-wrap; /* Yeh formatting ko preserve karta hai */
+            display: none; /* Shuru me hidden rahega */
+        }
+        
+        /* ------------------- */
+        /* --- Impact Section (Hamara asar section) --- */
+        /* ------------------- */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-item {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        .stat-item .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--color-gradient-orange-start), var(--color-gradient-orange-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-item .stat-label {
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+        .stat-item .cartoon-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            opacity: 0.2;
+        }
+        
+        /* ------------------- */
+        /* --- Download App Section (App download karne ka section) --- */
+        /* ------------------- */
+        #download {
+            background-image: linear-gradient(90deg, var(--color-gradient-orange-start), var(--color-gradient-orange-end));
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        #download .container {
+            position: relative;
+            z-index: 2;
+        }
+        #download .bg-veg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff"%3E%3Cpath d="M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+        #download h2, #download .section-subtitle {
+            color: var(--color-white);
+        }
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .app-btn {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .app-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        .app-btn i {
+            font-size: 1.8rem;
+        }
+        .app-btn span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        /* ------------------- */
+        /* --- Contact Section (Sampark karne ka section) --- */
+        /* ------------------- */
+        .contact-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+            font-family: var(--font-family);
+            font-size: 1rem;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-form .btn {
+            width: 100%;
+        }
+
+        /* ------------------- */
+        /* --- Footer (Sabse neeche wala section) --- */
+        /* ------------------- */
+        .footer {
+            background-color: var(--color-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 0 30px 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .footer-grid h4 {
+            color: var(--color-white);
+            margin-bottom: 1.5rem;
+        }
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links ul a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-links ul a:hover {
+            color: var(--color-accent);
+            padding-left: 5px;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--color-accent);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* ------------------- */
+        /* --- Modal Styles (Popup ke liye styles) --- */
+        /* ------------------- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: var(--border-radius);
+            position: relative;
+            animation: slideIn 0.4s;
+        }
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover, .close-btn:focus {
+            color: black;
+        }
+        #modal-title {
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        #modal-body {
+            white-space: pre-wrap;
+        }
+        @keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
+        @keyframes slideIn { from {transform: translateY(-50px)} to {transform: translateY(0)} }
+
+
+        /* ------------------- */
+        /* --- Responsive Design (Mobile/Tablet ke liye styles) --- */
+        /* ------------------- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-visual-placeholder {
+                grid-row: 1; /* Image on top on mobile */
+                margin-bottom: 3rem;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-text {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--color-white);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: right 0.5s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .menu-toggle {
+                display: block;
+                z-index: 1001; /* Nav links ke upar dikhane ke liye */
+            }
+            
+            h1 { font-size: 2.5rem; }
+            
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================= Header ======================= -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">CartLu</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#community" class="nav-link">Our Community</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#download" class="btn btn-primary">Get App</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ======================= Hero Section ======================= -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text reveal">
+                        <h1>Freshness Delivered. Hawkers Empowered.</h1>
+                        <p>
+                            Discover the vibrant tastes of India, sourced directly from your neighborhood's trusted fruit and vegetable hawkers. CartLu brings you closer to fresh, local produce while uplifting the hardworking vendors who are the backbone of our communities.
+                        </p>
+                        <a href="#download" class="btn btn-primary">Support Local Heroes</a>
+                    </div>
+                    <div class="hero-visual-placeholder reveal">
+                        <!-- Yahan aap ek real photo ya video daal sakte hain. -->
+                        <!-- Example: Ek khush hawker apne thele ke paas khada hai. -->
+                        <div class="placeholder-text">
+                            <h4>Your vibrant image or video here!</h4>
+                            <p>(Add a real photo/video of a hawker and their cart)</p>
+                        </div>
+                        <!-- Cartoon Hawker SVG -->
+                        <svg class="cartoon-hawker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g transform="translate(100 100)"><path d="M48.1,-45.4C62.7,-30.9,75.2,-15.5,77.5,2.1C79.8,19.7,71.9,39.3,58.3,52.3C44.7,65.3,25.4,71.7,5.5,72.4C-14.4,73.1,-28.8,68.2,-43,59.3C-57.2,50.4,-71.2,37.6,-76.4,22.2C-81.6,6.8,-78,-11.1,-68.8,-25.6C-59.6,-40.1,-44.8,-51.2,-29.6,-60.2C-14.4,-69.2,-7.2,-76.1,3.4,-78.3C14,-80.5,28,-78.1,48.1,-45.4Z" fill="#f07209"></path></g></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= About Us Section ======================= -->
+        <section id="about">
+            <div class="container reveal">
+                <h2>The Heartbeat of Local Commerce</h2>
+                <p class="section-subtitle">We are on a mission to bridge the gap between technology and tradition, creating a sustainable future for India's local vendors.</p>
+                <div class="about-grid">
+                    <div class="about-image-placeholder">
+                        <!-- Yahan aap ek photo daal sakte hain jisme aap hawkers se baat kar rahe hain. -->
+                        <div class="placeholder-text">
+                            <h4>Your "Our Story" image here!</h4>
+                            <p>(Add a photo of your team with the hawkers)</p>
+                        </div>
+                        <!-- Cartoon Vegetables -->
+                        <svg class="cartoon-veg tomato" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#E74C3C" d="M45.7,-49.4C58.9,-37.8,69.1,-23.4,71.4,-7.3C73.7,8.8,68.1,26.5,56.8,40.2C45.5,53.9,28.5,63.6,10.7,66.8C-7.1,70,-25.7,66.6,-39.5,57.1C-53.3,47.6,-62.3,32,-65.4,15.6C-68.5,-0.8,-65.7,-18,-56.9,-32.1C-48.1,-46.2,-33.3,-57.2,-18.2,-62.5C-3.1,-67.8,12.4,-67.4,25.8,-62.2C39.2,-57,52.5,-46.1,45.7,-49.4Z" transform="translate(100 100)" /></svg>
+                        <svg class="cartoon-veg carrot" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#F39C12" d="M41.6,-48.9C54.4,-38.3,65.7,-25.7,69.2,-11.3C72.7,3.1,68.4,19.3,58.8,32.3C49.2,45.3,34.3,55.1,18.8,60.1C3.3,65.1,-12.8,65.3,-27.9,59.3C-43,53.3,-57.1,41.1,-64.2,26.2C-71.3,11.3,-71.4,-6.2,-64.9,-19.9C-58.4,-33.6,-45.3,-43.5,-32.1,-52.1C-18.9,-60.7,-5.6,-68,7.3,-69.5C20.2,-71,30.4,-65.7,41.6,-48.9Z" transform="translate(100 100)" /></svg>
+                    </div>
+                    <div class="about-text">
+                        <h3>Our Story: From a Simple Idea to a Social Movement</h3>
+                        <p>CartLu was born from a simple observation: while cities modernized, the local fruit and vegetable hawkers—the very soul of our daily markets—were being left behind. We saw their struggle, their resilience, and their invaluable contribution to our communities.</p>
+                        <p>Our mission is to empower these micro-entrepreneurs with simple, effective technology. We provide them a digital platform to showcase their produce, connect with a wider customer base, and streamline their daily operations. For you, it means convenient access to the freshest produce and the joy of supporting a local business owner directly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= How It Works Section ======================= -->
+        <section id="how-it-works">
+            <div class="container reveal">
+                <h2>Simple Steps to Freshness</h2>
+                <p class="section-subtitle">Connecting with your local hawker has never been easier. Experience a seamless journey from cart to kitchen.</p>
+                <div class="how-it-works-grid">
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fas fa-store"></i></div>
+                        <h4>1. Hawkers Go Digital</h4>
+                        <p>Local vendors easily list their fresh, daily produce and location on the CartLu app, creating their own digital storefront in minutes.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h4>2. You Discover & Order</h4>
+                        <p>Browse nearby hawkers, view their real-time inventory, and place your order for the freshest fruits and vegetables through our app.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fas fa-shopping-basket"></i></div>
+                        <h4>3. Quick Pickup or Delivery</h4>
+                        <p>Choose convenient home delivery or a quick pickup from your favorite vendor's location. Freshness, guaranteed.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h4>4. Community Thrives</h4>
+                        <p>With every order, you directly support a local family, reduce food waste, and help preserve the vibrant market culture of India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Community (For Whom) Section ======================= -->
+        <section id="community">
+            <div class="container reveal">
+                <h2>Built for Our Community</h2>
+                <p class="section-subtitle">CartLu is a win-win platform designed to benefit both the hardworking vendors and the discerning customers who value freshness and local connection.</p>
+                <div class="community-grid">
+                    <div class="community-card">
+                        <div class="image-placeholder placeholder-hawkers">
+                            <!-- Yahan ek real photo daalein jisme ek khush hawker ho -->
+                            <p>Photo of a happy hawker partner here!</p>
+                        </div>
+                        <div class="community-content">
+                            <h3>For Our Hawker Partners</h3>
+                            <ul>
+                                <li><i class="fas fa-chart-line"></i> Increased sales and wider customer reach.</li>
+                                <li><i class="fas fa-wallet"></i> Direct, timely payments and better income stability.</li>
+                                <li><i class="fas fa-boxes"></i> Reduced food waste through better demand prediction.</li>
+                                <li><i class="fas fa-handshake"></i> A platform that respects their business and pricing.</li>
+                            </ul>
+                            <button id="get-hawker-tip-btn" class="btn btn-secondary">✨ Get a Daily Business Tip</button>
+                        </div>
+                    </div>
+                    <div class="community-card">
+                        <div class="image-placeholder placeholder-customers">
+                            <!-- Yahan ek real photo daalein jisme ek khush customer ho -->
+                            <p>Photo of a happy customer here!</p>
+                        </div>
+                        <div class="community-content">
+                            <h3>For Our Valued Customers</h3>
+                            <ul>
+                                <li><i class="fas fa-leaf"></i> Access to the freshest, locally sourced produce.</li>
+                                <li><i class="fas fa-clock"></i> Ultimate convenience of ordering from trusted vendors.</li>
+                                <li><i class="fas fa-users"></i> The satisfaction of directly supporting local families.</li>
+                                <li><i class="fas fa-map-pin"></i> Discovering the best local vendors in your own neighborhood.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ======================= Why Us Section ======================= -->
+        <section id="why-us">
+            <div class="container reveal">
+                <h2>Why Choose CartLu?</h2>
+                <p class="section-subtitle">We are more than a delivery service. We are a movement towards a more sustainable and equitable local food ecosystem in India.</p>
+                <div class="why-us-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon green"><i class="fas fa-seedling"></i></div>
+                        <h4>Peak Freshness</h4>
+                        <p>Our unique model ensures the shortest possible supply chain — from the local cart to your kitchen, often within hours.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon red"><i class="fas fa-people-carry"></i></div>
+                        <h4>Direct Impact</h4>
+                        <p>Your money goes directly to the vendors. We empower them with a platform, not take hefty commissions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon yellow"><i class="fas fa-recycle"></i></div>
+                        <h4>Reduced Waste</h4>
+                        <p>By connecting supply and demand in real-time, we help hawkers sell more of their produce, significantly reducing food spoilage.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon orange"><i class="fas fa-heart"></i></div>
+                        <h4>Community Focused</h4>
+                        <p>We are dedicated to preserving the culture of local markets and fostering trust between vendors and customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Gemini AI Recipe Section ======================= -->
+        <section id="gemini-ai">
+            <div class="container reveal">
+                <div class="gemini-wrapper">
+                    <h3>✨ Discover Delicious Possibilities</h3>
+                    <p>Got fresh veggies but not sure what to cook? Let our AI chef inspire you!</p>
+                    <textarea id="ingredient-input" rows="3" placeholder="Enter ingredients you have (e.g., tomatoes, paneer, spinach)..."></textarea>
+                    <button id="generate-recipe-btn" class="btn btn-primary">Generate Recipe</button>
+                    <div id="recipe-result"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Impact Section ======================= -->
+        <section id="impact">
+            <div class="container reveal">
+                <h2>Our Growing Impact</h2>
+                <p class="section-subtitle">We measure our success by the positive change we bring to the lives of our hawker partners and the communities we serve.</p>
+                <div class="impact-grid">
+                    <div class="stat-item">
+                        <svg class="cartoon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.25 6.75H6.75C5.92157 6.75 5.25 7.42157 5.25 8.25V17.25C5.25 18.0784 5.92157 18.75 6.75 18.75H17.25C18.0784 18.75 18.75 18.0784 18.75 17.25V8.25C18.75 7.42157 18.0784 6.75 17.25 6.75Z" stroke="#34495e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.25 18.75V5.25C8.25 4.83579 8.58579 4.5 9 4.5H15C15.4142 4.5 15.75 4.83579 15.75 5.25V18.75" stroke="#34495e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Hawkers Onboarded</div>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="cartoon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 12.75L9 17.25L19.5 6.75" stroke="#34495e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-number">30%</div>
+                        <div class="stat-label">Projected Income Increase</div>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="cartoon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.75 6.75L9 12L12.75 17.25" stroke="#34495e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-number">25%</div>
+                        <div class="stat-label">Projected Waste Reduction</div>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="cartoon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#34495e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7.5V12L14.25 14.25" stroke="#34495e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-number">1000s</div>
+                        <div class="stat-label">Lives to be Touched</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Download App Section ======================= -->
+        <section id="download">
+            <div class="bg-veg-pattern"></div>
+            <div class="container reveal">
+                <h2>Join the Fresh Revolution Today!</h2>
+                <p class="section-subtitle">Download the CartLu app and experience the future of local produce shopping. Available soon on iOS and Android.</p>
+                <div class="app-buttons">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple"></i>
+                        <span>App Store</span>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Contact Section ======================= -->
+        <section id="contact">
+            <div class="container reveal">
+                <h2>Get in Touch</h2>
+                <p class="section-subtitle">Have questions, feedback, or want to partner with us? We’d love to hear from you.</p>
+                <div class="contact-wrapper">
+                    <form action="#" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= Footer ======================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h4>About CartLu</h4>
+                    <p>CartLu is a social enterprise dedicated to empowering local fruit and vegetable hawkers across India with digital tools, creating a fresher and more equitable food ecosystem for all.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#community">Our Community</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Hawker Agreement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@cartlu.com">info@cartlu.com</a></li>
+                        <li><p>New Delhi, India</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> CartLu. All Rights Reserved. Made with <i class="fas fa-heart" style="color: var(--color-secondary);"></i> in India.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ======================= Modal for Gemini API Response ======================= -->
+    <div id="gemini-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title"></h3>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+
+    <!-- ======================= JavaScript ======================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Header Scroll Effect (Scroll karne par Header ka effect) ---
+            // Jab user scroll karta hai, header me 'scrolled' class add ho jaati hai
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Mobile Navigation Toggle (Mobile menu ko kholne/band karne ke liye) ---
+            // Mobile menu ke liye 'active' class ko toggle karta hai
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            const navLinkItems = document.querySelectorAll('.nav-link');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                // Menu button ke icon ko bars se 'X' me badalta hai
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+            
+            // Jab koi link click ho to mobile menu band ho jaaye
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // --- Active Navigation Link Highlighting on Scroll (Scroll par active link ko highlight karna) ---
+            const sections = document.querySelectorAll('section[id]');
+            function navHighlighter() {
+                let scrollY = window.pageYOffset;
+                sections.forEach(current => {
+                    const sectionHeight = current.offsetHeight;
+                    const sectionTop = current.offsetTop - 100; // Header ki height ke liye adjustment
+                    let sectionId = current.getAttribute('id');
+                    
+                    let link = document.querySelector('.nav-links a[href*=' + sectionId + ']');
+                    if (link) {
+                         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                            link.classList.add('active-link');
+                        } else {
+                            link.classList.remove('active-link');
+                        }
+                    }
+                });
+            }
+            window.addEventListener('scroll', navHighlighter);
+            navHighlighter(); // Page load par sahi section ko highlight karne ke liye
+
+            // --- Reveal Elements on Scroll (Scroll karne par elements ko show karna) ---
+            // Jab 'reveal' class wala element screen par aaye to 'active' class add karta hai
+            function reveal() {
+                var reveals = document.querySelectorAll(".reveal");
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 150; // Screen ke neeche se kitni doori par animation trigger ho
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    } else {
+                        // Optional: Upar scroll karne par re-animate ke liye class hata sakte hain
+                        // reveals[i].classList.remove("active"); 
+                    }
+                }
+            }
+            window.addEventListener("scroll", reveal);
+            reveal(); // Page load par jo elements pehle se view me hain unhe reveal karne ke liye
+
+            // --- Dynamic Year in Footer (Footer me saal ko dynamically set karna) ---
+            // Copyright notice me current saal set karta hai
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // --- Gemini API Feature Code (AI features ke liye code) ---
+            
+            // Modal elements ko select karna
+            const modal = document.getElementById('gemini-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const closeBtn = document.querySelector('.close-btn');
+            
+            // Modal ko band karne ke liye event listeners
+            closeBtn.onclick = () => modal.style.display = "none";
+            window.onclick = (event) => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+            
+            // Gemini API ko call karne ke liye function
+            async function callGeminiAPI(prompt, title, displayElement) {
+                const apiKey = ""; // API key yahan daalne ki zaroorat nahi hai.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                // Loading state dikhana
+                if (displayElement.id === 'recipe-result') {
+                    displayElement.style.display = 'block';
+                    displayElement.innerHTML = 'Generating your delicious recipe...';
+                } else {
+                    modal.style.display = 'block';
+                    modalTitle.innerText = title;
+                    modalBody.innerHTML = 'Generating tip...';
+                }
+
+                try {
+                    const payload = {
+                        contents: [{
+                            role: "user",
+                            parts: [{ text: prompt }]
+                        }]
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API call failed with status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        // Result ko sahi jagah display karna
+                        if (displayElement.id === 'recipe-result') {
+                            displayElement.innerText = text;
+                        } else {
+                            modalBody.innerText = text;
+                        }
+                    } else {
+                        throw new Error("No content received from API.");
+                    }
+
+                } catch (error) {
+                    console.error("Gemini API Error:", error);
+                    const errorMessage = "Sorry, something went wrong. Please try again later.";
+                    if (displayElement.id === 'recipe-result') {
+                        displayElement.innerText = errorMessage;
+                    } else {
+                        modalBody.innerText = errorMessage;
+                    }
+                }
+            }
+            
+            // Recipe Generator ke button ke liye event listener
+            const generateRecipeBtn = document.getElementById('generate-recipe-btn');
+            const ingredientInput = document.getElementById('ingredient-input');
+            const recipeResultDiv = document.getElementById('recipe-result');
+
+            generateRecipeBtn.addEventListener('click', () => {
+                const ingredients = ingredientInput.value.trim();
+                if (ingredients === "") {
+                    alert("Please enter some ingredients first!");
+                    return;
+                }
+                const prompt = `You are a helpful Indian home cook. Create a simple, step-by-step recipe using these ingredients: ${ingredients}. Make it easy to follow. Start with the recipe name as a title.`;
+                callGeminiAPI(prompt, "Your Recipe", recipeResultDiv);
+            });
+            
+            // Hawker Tip ke button ke liye event listener
+            const getHawkerTipBtn = document.getElementById('get-hawker-tip-btn');
+            getHawkerTipBtn.addEventListener('click', () => {
+                const prompt = "Give a simple, one-line business tip for a street fruit and vegetable vendor in India to increase sales or manage stock better. Keep the language very simple and encouraging.";
+                callGeminiAPI(prompt, "✨ Daily Business Tip", modalBody);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
