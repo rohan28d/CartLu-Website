@@ -1535,47 +1535,47 @@
                 callGeminiAPI(prompt, "✨ Daily Business Tip", modalBody);
             });
 
-        });
-document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('#graphic-slideshow .slide');
-    const leftBtn = document.querySelector('#graphic-slideshow .slide-btn.left');
-    const rightBtn = document.querySelector('#graphic-slideshow .slide-btn.right');
-    const indicators = document.querySelector('#graphic-slideshow .slide-indicators');
-    let current = 0;
-
-    // Create indicator dots
-    slides.forEach((_, idx) => {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        if (idx === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => showSlide(idx));
-        indicators.appendChild(dot);
-    });
-
-    function showSlide(idx) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === idx);
-            indicators.children[i].classList.toggle('active', i === idx);
-        });
-        current = idx;
-    }
-
-    leftBtn.addEventListener('click', () => {
-        showSlide((current - 1 + slides.length) % slides.length);
-    });
-
-    rightBtn.addEventListener('click', () => {
-        showSlide((current + 1) % slides.length);
-    });
-
-    // Optional: Auto-slide every 5s
-    setInterval(() => {
-        showSlide((current + 1) % slides.length);
-    }, 5000);
-});
-
+            });
     </script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('#graphic-slideshow .slide');
+            const leftBtn = document.querySelector('#graphic-slideshow .slide-btn.left');
+            const rightBtn = document.querySelector('#graphic-slideshow .slide-btn.right');
+            const indicators = document.querySelector('#graphic-slideshow .slide-indicators');
+            let current = 0;
+        
+            // Create indicator dots
+            slides.forEach((_, idx) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (idx === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => showSlide(idx));
+                indicators.appendChild(dot);
+            });
+        
+            function showSlide(idx) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === idx);
+                    indicators.children[i].classList.toggle('active', i === idx);
+                });
+                current = idx;
+            }
+        
+            leftBtn.addEventListener('click', () => {
+                showSlide((current - 1 + slides.length) % slides.length);
+            });
+        
+            rightBtn.addEventListener('click', () => {
+                showSlide((current + 1) % slides.length);
+            });
+        
+            // Optional: Auto-slide every 5s
+            setInterval(() => {
+                showSlide((current + 1) % slides.length);
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
 
